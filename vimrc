@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=utf-8
 
 if has("gui")
   " Setup pathogen
@@ -15,7 +16,15 @@ set nowrap
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set list listchars=tab:\ \ ,trail:·
+set list
+set backspace=indent,eol,start
+
+" List chars
+set listchars=""
+set listchars=tab:\ \
+set listchars+=trail:.
+set listchars+=extends:>
+set listchars+=precedes:<
 
 " Searching
 set hlsearch
@@ -50,3 +59,17 @@ map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 " Clojure
 let vimclojure#HighlightBuiltins = 1
+
+" Add .dust extension
+au BufNewFile,BufRead *.dust set filetype=html
+
+if has("statusline") && !&cp
+  set laststatus=2  " always show the status bar
+
+  " Start the status line
+  set statusline=%f\ %m\ %r
+  set statusline+=Line:%l/%L[%p%%]
+  set statusline+=Col:%v
+  set statusline+=Buf:#%n
+  set statusline+=[%b][0x%B]
+endif
