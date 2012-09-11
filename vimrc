@@ -4,8 +4,8 @@ set encoding=utf-8
 if has("gui")
   " Setup pathogen
   filetype off
-  call pathogen#runtime_append_all_bundles()
 endif
+call pathogen#runtime_append_all_bundles()
 
 set number
 set ruler

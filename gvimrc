@@ -9,13 +9,14 @@ if has("gui_macvim")
   let g:CommandTMaxHeight=8
   map <D-t> :CommandT<CR>
   map <D-t>r :CommandTFlush<CR>
+  CommandTFlush
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
+  set guioptions-=r
 endif
 
 " My own flavor
 color railscasts2
-set guioptions = aAce
-set transparency=8
+set transparency=0
 set guifont=Monaco:h12
 
 " Load local settings
