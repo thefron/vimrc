@@ -57,8 +57,8 @@ au BufRead,BufNewFile *.txt call s:setupWrapping()
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
-" Clojure
-let vimclojure#HighlightBuiltins = 1
+" ZoomWin
+map <Leader><Leader> :ZoomWin<CR>
 
 " Add .dust extension
 au BufNewFile,BufRead *.dust set filetype=html
