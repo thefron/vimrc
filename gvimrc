@@ -11,7 +11,7 @@ if has("gui_macvim")
   map <D-t>r :CommandTFlush<CR>
   CommandTFlush
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
-  set guioptions-=r
+  set guioptions-=rL
 endif
 
 " My own flavor

@@ -40,3 +40,12 @@
 [submodule "bundle/vim-comments"]
 	path = bundle/vim-comments
 	url = git://github.com/vim-scripts/comments.vim.git
+[submodule "bundle/vim-issues"]
+	path = bundle/vim-issues
+	url = git://github.com/mklabs/vim-issues.git
+[submodule "bundle/vim-slim"]
+	path = bundle/vim-slim
+	url = git://github.com/bbommarito/vim-slim.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
