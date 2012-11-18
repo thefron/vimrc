@@ -55,9 +55,6 @@
 [submodule "bundle/Align"]
 	path = bundle/Align
 	url = https://github.com/vim-scripts/Align.git
-[submodule "bundle/vim-issues"]
-	path = bundle/vim-issues
-	url = https://github.com/mklabs/vim-issues.git
 [submodule "bundle/vim-slim"]
 	path = bundle/vim-slim
 	url = git://github.com/bbommarito/vim-slim.git
