@@ -7,9 +7,6 @@ map <Leader>n :NERDTree<CR>
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   let g:CommandTMaxHeight=8
-  map <D-t> :CommandT<CR>
-  map <D-t>r :CommandTFlush<CR>
-  CommandTFlush
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
   set guioptions-=rL
 endif
