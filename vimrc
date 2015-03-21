@@ -12,7 +12,7 @@ au BufWritePost .vimrc so $MYVIMRC
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'duggiefresh/vim-easydir'
 
 Plugin 'jelera/vim-javascript-syntax'
@@ -66,10 +66,10 @@ call vundle#end()
 hi def link CtrlPMatch CursorLine
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|Android',
-      \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
-      \ }
+" let g:ctrlp_custom_ignore = {
+"       \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|Android',
+"       \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
+"       \ }
 nnoremap <C-b> :CtrlPBuffer<cr>
 " CtrlP Delete
 call ctrlp_bdelete#init()
@@ -149,11 +149,11 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-function s:setupWrapping()
-  set wrap
-  set wm=2
-  set textwidth=80
-endfunction
+" function s:setupWrapping()
+"   set wrap
+"   set wm=2
+"   set textwidth=80
+" endfunction
 
 " Autocommands
 au BufRead,BufNewFile {Gemfile,Capfile,Kirkfile,Rakefile,Thorfile,config.ru} set ft=ruby
