@@ -18,6 +18,11 @@ Plugin 'duggiefresh/vim-easydir'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
+Plugin 'briancollins/vim-jst'
+Plugin 'fatih/vim-go'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'mattn/emmet-vim'
+Plugin 'gregsexton/MatchTag'
 
 Plugin 'tmhedberg/matchit'
 Plugin 'rorymckinley/vim-rubyhash'
@@ -60,16 +65,18 @@ Plugin 'groenewege/vim-less'
 Plugin 'elzr/vim-json'
 Plugin 'tsaleh/vim-supertab'
 Plugin 'tpope/vim-endwise'
+Plugin 'rodjek/vim-puppet'
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 
 hi def link CtrlPMatch CursorLine
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_switch_buffer = 'Et'
-" let g:ctrlp_custom_ignore = {
-"       \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|Android',
-"       \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
-"       \ }
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|Android\|bower_components',
+      \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
+      \ }
 nnoremap <C-b> :CtrlPBuffer<cr>
 " CtrlP Delete
 call ctrlp_bdelete#init()
@@ -88,6 +95,9 @@ let g:netrw_liststyle = 0
 let g:rubyhash_map_keys = 0
 " ruby path if you are using RVM
 let g:ruby_path = system('rvm current')
+
+let g:gist_api_url = 'http://github.daumkakao.com/api/v3'
+
 
 if has("gui")
   filetype off
