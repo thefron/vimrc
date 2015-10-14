@@ -15,6 +15,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'duggiefresh/vim-easydir'
 
+Plugin 'scrooloose/syntastic'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
@@ -60,6 +61,7 @@ Plugin 'avakhov/vim-yaml'
 Plugin 'idanarye/vim-merginal'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'danro/rename.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'elzr/vim-json'
@@ -67,6 +69,7 @@ Plugin 'tsaleh/vim-supertab'
 Plugin 'tpope/vim-endwise'
 Plugin 'rodjek/vim-puppet'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'digitaltoad/vim-jade'
 
 call vundle#end()
 
@@ -74,9 +77,10 @@ hi def link CtrlPMatch CursorLine
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|Android\|bower_components',
+      \ 'dir': '\v[\/](node_modules|bower_components|build|tmp|log|target|dist)|(\.(swp|ico|git|svn|hg))$',
       \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
       \ }
+
 nnoremap <C-b> :CtrlPBuffer<cr>
 " CtrlP Delete
 call ctrlp_bdelete#init()
