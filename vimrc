@@ -184,3 +184,11 @@ au BufNewFile,BufRead *.jbuilder set filetype=ruby
 set vb
 
 set wildignore+=*/tmp/*,*/log/*
+
+let g:syntastic_javascript_checkers = ['standard']
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
