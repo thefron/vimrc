@@ -12,7 +12,7 @@ au BufWritePost .vimrc so $MYVIMRC
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'duggiefresh/vim-easydir'
 
 Plugin 'scrooloose/syntastic'
