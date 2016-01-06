@@ -37,7 +37,7 @@ Plugin 'tpope/vim-rake'
 Plugin 'szw/vim-tags'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'danchoi/ri.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'mileszs/ack.vim'
@@ -180,6 +180,7 @@ map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " Add .dust extension
 au BufNewFile,BufRead *.dust set filetype=html
 au BufNewFile,BufRead *.jbuilder set filetype=ruby
+au BufNewFile,BufRead *.es6 set filetype=javascript
 
 set vb
 
