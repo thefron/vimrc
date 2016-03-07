@@ -70,6 +70,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'rodjek/vim-puppet'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'wellbredgrapefruit/tomdoc.vim'
 
 call vundle#end()
 
