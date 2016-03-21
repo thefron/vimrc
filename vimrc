@@ -101,8 +101,7 @@ let g:rubyhash_map_keys = 0
 " ruby path if you are using RVM
 let g:ruby_path = system('rvm current')
 
-let g:gist_api_url = 'http://github.daumkakao.com/api/v3'
-
+let g:go_fmt_command = "goimports"
 
 if has("gui")
   filetype off
@@ -188,6 +187,7 @@ set vb
 set wildignore+=*/tmp/*,*/log/*
 
 let g:syntastic_javascript_checkers = ['standard']
+let g:neocomplete#enable_at_startup = 1
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
