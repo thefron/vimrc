@@ -42,8 +42,6 @@ Plugin 'd11wtq/ctrlp_bdelete.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'mileszs/ack.vim'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'jpo/vim-railscasts-theme'
 Plugin 'wellle/targets.vim'
 Plugin 'slim-template/vim-slim'
 Plugin 'nanotech/jellybeans.vim'
@@ -55,7 +53,6 @@ Plugin 'gregsexton/gitv'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'vim-scripts/LargeFile'
-Plugin 'chriskempson/base16-vim'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'avakhov/vim-yaml'
 Plugin 'idanarye/vim-merginal'
@@ -71,6 +68,12 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'wellbredgrapefruit/tomdoc.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 
@@ -107,8 +110,6 @@ if has("gui")
   filetype off
 endif
 
-colorscheme base16-tomorrow
-set background=dark
 set ls=2
 
 " Improve vim's scrolling speed
@@ -168,6 +169,7 @@ set noswapfile
 "   set wm=2
 "   set textwidth=80
 " endfunction
+set textwidth=80
 
 " Autocommands
 au BufRead,BufNewFile {Gemfile,Capfile,Kirkfile,Rakefile,Thorfile,config.ru} set ft=ruby
@@ -187,10 +189,76 @@ set vb
 set wildignore+=*/tmp/*,*/log/*
 
 let g:syntastic_javascript_checkers = ['standard']
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+nmap <F8> :TagbarToggle<CR>
+
+au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+" This trigger takes advantage of the fact that the quickfix window can be
+" " easily distinguished by its file-type, qf. The wincmd J command is
+" " equivalent to the Ctrl+W, Shift+J shortcut telling Vim to move a window to
+" " the very bottom (see :help :wincmd and :help ^WJ).
+autocmd FileType qf wincmd J
+
+" let g:solarized_visibility = "high"
+" let g:solarized_contrast = "high"
+colorscheme solarized
+let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
+
+" NERDTree
+map <Leader>n :NERDTree<CR>
+
+" Fix highlights
+hi link TagbarSignature Text
