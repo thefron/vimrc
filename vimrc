@@ -74,6 +74,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'suan/vim-instant-markdown'
 
 call vundle#end()
 
@@ -140,6 +142,9 @@ set listchars=tab:\ \
 set listchars+=trail:.
 set listchars+=extends:>
 set listchars+=precedes:<
+
+set colorcolumn=+1
+
 
 " Autocomplete ids and classes in CSS
 autocmd FileType css,scss set iskeyword=@,48-57,_,-,?,!,192-255
@@ -262,3 +267,7 @@ map <Leader>n :NERDTree<CR>
 
 " Fix highlights
 hi link TagbarSignature Text
+
+" Autocloses go autocomplete scratch
+" https://github.com/fatih/vim-go/issues/223#issuecomment-62619901
+set completeopt=menu
